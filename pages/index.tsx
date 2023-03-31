@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -13,102 +12,91 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <div>
-          <p>
-            Get started by editing&nbsp;
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
+      <main className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 h-screen w-screen grid place-items-center">
+        <div className="max-w-md mx-auto">
+          <h1 className='uppercase text-center'>Hey there</h1>
+          <h2 className="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl uppercase">
+            let&apos;s discuss how we can be useful to you
+          </h2>
+          <form 
+            // onSubmit={handleSubmit} 
+            className="mt-8 space-y-6">
+            <input type="hidden" name="remember" value="true" />
+            <div className="rounded-md shadow-sm -space-y-px">
+              <div>
+                <label htmlFor="name" className="sr-only">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Name"
+                  // value={formValues.name}
+                  // onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Email address"
+                  // value={formValues.email}
+                  // onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="sr-only">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="How can we help you?"
+                  // value={formValues.message}
+                  // onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div>
+              <button
+                type="submit"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring
+                indigo-500"
+                >
+                  <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+                    <svg
+                      className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM9 4a1 1 0 112 0v5a1 1 0 11-2 0V4zm2 11a1 1 0 11-2 0 1 1 0 012 0zm3-8a1 1 0 00-1 1v6a1 1 0 002 0V8a1 1 0 00-1-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  Contact Me
+                </button>
+              </div>
+            </form>
           </div>
-        </div>
-
-        <div>
-          <Image
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
-
-        <div>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
       </main>
     </>
   )
