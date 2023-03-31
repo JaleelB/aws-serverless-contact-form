@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const montserrat = Montserrat({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -12,91 +12,60 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 h-screen w-screen grid place-items-center">
-        <div className="max-w-md mx-auto">
-          <h1 className='uppercase text-center'>Hey there</h1>
-          <h2 className="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl uppercase">
-            let&apos;s discuss how we can be useful to you
+      <main 
+        className={`bg-primary py-12 px-4 sm:px-6 lg:px-8 h-screen w-screen grid place-items-center ${montserrat.className}`}
+      >
+        <section className="max-w-5xl mx-auto grid gap-8">
+          <h1 className='uppercase text-center text-sm text-secondary'>Hey there</h1>
+          <h2 className="text-center text-3xl font-bold text-gray-900 sm:text-4xl lg:text-6xl xl:text-8xl uppercase text-primary">
+            let&apos;s discuss <br/>how we can be<br/> useful to you
           </h2>
-          <form 
-            // onSubmit={handleSubmit} 
-            className="mt-8 space-y-6">
-            <input type="hidden" name="remember" value="true" />
-            <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="name" className="sr-only">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Name"
-                  // value={formValues.name}
-                  // onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Email address"
-                  // value={formValues.email}
-                  // onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="sr-only">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="How can we help you?"
-                  // value={formValues.message}
-                  // onChange={handleChange}
-                />
+          <div className='flex w-full items-center justify-center flex-col lg:flex-row'>
+            <form 
+              // onSubmit={handleSubmit} 
+              className="flex h-12 lg:h-14 w-full relative flex"
+            >
+                <div className="relative w-full">
+                  <label htmlFor="email" className="sr-only">
+                    Email address
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    className="
+                      appearance-none rounded-full relative 
+                      block w-full px-3 py-2 border border-gray-700 
+                      placeholder-gray-500 text-gray-900 h-full
+                      focus:outline-none pl-4 sm:text-sm bg-transparent
+                      text-primary
+                    "
+                    placeholder="Email address"
+                    // value={formValues.email}
+                    // onChange={handleChange}
+                  />
+                </div>
+
+                  <button
+                    type="submit"
+                    className="
+                      group absolute px-8 flex justify-center items-center h-full text-center
+                      border border-transparent text-sm font-medium rounded-md 
+                      text-white bg-secondary hover:bg-secondary-700 focus:outline-none 
+                      focus:ring-1 focus:ring-offset-1 focus:ring indigo-500
+                      rounded-full leading-4 top-0 right-0 text-black font-medium
+                    "
+                  >
+                    Contact Me
+                  </button>
+              </form>
+              <div className='ml-4 text-primary w-full lg:w-1/2'>
+                <p>Receive a message at the provided email.</p>
               </div>
             </div>
-            <div>
-              <button
-                type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring
-                indigo-500"
-                >
-                  <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                    <svg
-                      className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM9 4a1 1 0 112 0v5a1 1 0 11-2 0V4zm2 11a1 1 0 11-2 0 1 1 0 012 0zm3-8a1 1 0 00-1 1v6a1 1 0 002 0V8a1 1 0 00-1-1z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  Contact Me
-                </button>
-              </div>
-            </form>
-          </div>
+          </section>
       </main>
     </>
   )
