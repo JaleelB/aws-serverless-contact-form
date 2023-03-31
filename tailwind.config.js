@@ -15,6 +15,10 @@ module.exports = {
         'secondary': '#B9FD7B',
       },
     },
+    fontFamily:{ 
+      "montserrat": "var(--font-montserrat)",
+      "clash-display": "var(--font-clash-display)",
+    }
   },
   plugins: [],
 }

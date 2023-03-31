@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { Montserrat } from 'next/font/google'
+// import { Montserrat } from 'next/font/google'
 
-const montserrat = Montserrat({ subsets: ['latin'] })
+// const montserrat = Montserrat({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -12,15 +12,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main 
-        className={`bg-primary py-12 px-4 sm:px-6 lg:px-8 h-screen w-screen grid place-items-center ${montserrat.className}`}
+      <section 
+        className={`bg-primary py-12 px-4 sm:px-6 lg:px-8 h-screen w-screen grid place-items-center`}
       >
-        <section className="max-w-5xl mx-auto grid gap-8">
-          <h1 className='uppercase text-center text-sm text-secondary'>Hey there</h1>
-          <h2 className="text-center text-3xl font-bold text-gray-900 sm:text-4xl lg:text-6xl xl:text-8xl uppercase text-primary">
+        <div className="max-w-5xl mx-auto grid gap-8">
+          <h1 className='uppercase text-center text-sm text-secondary font-montserrat'>Hey there</h1>
+          <h2 className="
+              text-center text-3xl font-bold text-gray-900 
+              sm:text-4xl lg:text-6xl xl:text-8xl uppercase 
+              text-primary font-clash-display tracking-widest
+            "
+          >
             let&apos;s discuss <br/>how we can be<br/> useful to you
           </h2>
-          <div className='flex w-full items-center justify-center flex-col lg:flex-row'>
+          <div className='flex items-center justify-center flex-col lg:flex-row font-montserrat'>
             <form 
               // onSubmit={handleSubmit} 
               className="flex h-12 lg:h-14 w-full relative flex"
@@ -52,8 +57,8 @@ export default function Home() {
                     type="submit"
                     className="
                       group absolute px-8 flex justify-center items-center h-full text-center
-                      border border-transparent text-sm font-medium rounded-md 
-                      text-white bg-secondary hover:bg-secondary-700 focus:outline-none 
+                      border border-transparent text-sm font-medium
+                      bg-secondary hover:bg-secondary-700 focus:outline-none 
                       focus:ring-1 focus:ring-offset-1 focus:ring indigo-500
                       rounded-full leading-4 top-0 right-0 text-black font-medium
                     "
@@ -61,12 +66,12 @@ export default function Home() {
                     Contact Me
                   </button>
               </form>
-              <div className='ml-4 text-primary w-full lg:w-1/2'>
+              <div className='ml-4 text-primary w-full mt-4 lg:mt-0 lg:w-1/2 2xl:w-4/12'>
                 <p>Receive a message at the provided email.</p>
               </div>
             </div>
-          </section>
-      </main>
+          </div>
+      </section>
     </>
   )
 }
