@@ -1,9 +1,11 @@
+import { Loader } from '@component/components'
 import Head from 'next/head'
-// import { Montserrat } from 'next/font/google'
-
-// const montserrat = Montserrat({ subsets: ['latin'] })
+import { useAnimation } from 'framer-motion';
 
 export default function Home() {
+
+  const loaderControls = useAnimation();
+
   return (
     <>
       <Head>
@@ -12,6 +14,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Loader title={"Happy Birthday Maureen"} loaderControls={loaderControls}/>
       <section 
         className={`bg-primary py-12 px-4 sm:px-6 lg:px-8 h-screen w-screen grid place-items-center`}
       >
@@ -66,7 +69,7 @@ export default function Home() {
                     Contact Me
                   </button>
               </form>
-              <div className='ml-4 text-primary w-full mt-4 lg:mt-0 lg:w-1/2 2xl:w-4/12'>
+              <div className='ml-8 text-primary w-full mt-4 lg:mt-0 lg:w-1/2 2xl:w-4/12'>
                 <p>Receive a message at the provided email.</p>
               </div>
             </div>
