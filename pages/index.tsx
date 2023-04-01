@@ -14,7 +14,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Loader title={"Happy Birthday Maureen"} loaderControls={loaderControls}/>
+      <Loader title={"Contact"} loaderControls={loaderControls}/>
       <section 
         className={`bg-primary py-12 px-4 sm:px-6 lg:px-8 h-screen w-screen grid place-items-center`}
       >
