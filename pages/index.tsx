@@ -1,10 +1,24 @@
 import { Loader } from '@component/components'
 import Head from 'next/head'
 import { useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
+import { defaultTransition } from '../utils/transition';
 
 export default function Home() {
 
   const loaderControls = useAnimation();
+
+  useEffect(()=> {
+    
+    setTimeout(() => {
+      loaderControls.start({
+        opacity: 0,
+        transition: { defaultTransition },
+      });
+
+    }, 2000);
+    
+  });
 
   return (
     <>

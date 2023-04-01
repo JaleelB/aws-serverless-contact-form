@@ -31,6 +31,7 @@ const Loader = ({ title, loaderControls }: Props) => {
         font-bold justify-center 
         text-3xl sm:text-4xl lg:text-6xl 
         xl:text-8xl pointer-events-none
+        h-full
       "
     >
       <motion.h1 
