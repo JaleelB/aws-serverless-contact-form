@@ -29,7 +29,7 @@ const Loader = ({ title, loaderControls }: Props) => {
         bg-secondary text-black z-50
         uppercase flex items-center
         font-bold justify-center 
-        text-3xl sm:text-4xl lg:text-6xl 
+        text-5xl lg:text-6xl 
         xl:text-8xl pointer-events-none
         h-full
       "

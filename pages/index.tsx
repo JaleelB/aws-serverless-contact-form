@@ -1,15 +1,18 @@
 import { Loader } from '@component/components'
 import Head from 'next/head'
 import { useAnimation } from 'framer-motion';
-import { useEffect } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { defaultTransition } from '../utils/transition';
 
 export default function Home() {
 
   const loaderControls = useAnimation();
 
+  // Add formValues state
+  const [formEmail, setFormEmail] = useState<string>('')
+
   useEffect(()=> {
-    
+
     setTimeout(() => {
       loaderControls.start({
         opacity: 0,
@@ -19,6 +22,35 @@ export default function Home() {
     }, 2000);
     
   });
+
+  useEffect(()=> {
+    console.log(formEmail);
+  }, [formEmail]);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setFormEmail(value);
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    try {
+      const response = await fetch('/api/contact-form', {
+        method: 'POST',
+        body: JSON.stringify({ email: formEmail }),
+      });
+
+      if (response.ok) {
+        alert('Email sent successfully.');
+        setFormEmail('');
+      } else {
+        throw new Error('Error processing contact form.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Error processing contact form.');
+    }
+  };
 
   return (
     <>
@@ -40,11 +72,11 @@ export default function Home() {
               text-primary font-clash-display tracking-widest
             "
           >
-            let&apos;s discuss <br/>how we can be<br/> useful to you
+            let&apos;s discuss <br/>how ai can be<br/> useful to you
           </h2>
           <div className='flex items-center justify-center flex-col lg:flex-row font-montserrat'>
             <form 
-              // onSubmit={handleSubmit} 
+              onSubmit={handleSubmit} 
               className="flex h-12 lg:h-14 w-full relative flex"
             >
                 <div className="relative w-full">
@@ -65,8 +97,8 @@ export default function Home() {
                       text-primary
                     "
                     placeholder="Email address"
-                    // value={formValues.email}
-                    // onChange={handleChange}
+                    value={formEmail}
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -83,7 +115,7 @@ export default function Home() {
                     Contact Me
                   </button>
               </form>
-              <div className='ml-8 text-primary w-full mt-4 lg:mt-0 lg:w-1/2 2xl:w-4/12'>
+              <div className='lg:ml-8 text-primary w-full mt-4 lg:mt-0 lg:w-1/2 2xl:w-4/12 '>
                 <p>Receive a message at the provided email.</p>
               </div>
             </div>
