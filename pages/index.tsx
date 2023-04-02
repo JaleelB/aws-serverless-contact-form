@@ -31,7 +31,7 @@ export default function Home() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await fetch('/api/contact-form', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         body: JSON.stringify({ email: formEmail }),
       });

@@ -1,17 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { sendEmail } from '../../utils/ses-utils';
 import {getEmailTemplate} from '../../templates/email-template';
-import fs from 'fs';
-import path from 'path';
+import {getEmailContent} from '../../templates/email-content-template'
 
 interface FormData {
   email: string;
 }
-
-const getEmailContent = (): string => {
-    const filePath = path.join(process.cwd(), '../../templates/email-content-template.txt');
-    return fs.readFileSync(filePath, 'utf-8');
-};
 
 const processContactForm = (formData: FormData) => {
     
@@ -26,11 +20,11 @@ const processContactForm = (formData: FormData) => {
     const params = {
         Source: `${process.env.SENDER_EMAIL}`,
         Destination: {
-        ToAddresses: [email],
+            ToAddresses: [email],
         },
         Message: {
-        Subject: { Data: subject },
-        Body: { Html: { Data: emailContent } },
+            Subject: { Data: subject },
+            Body: { Html: { Data: emailContent } },
         },
     };
 
@@ -47,7 +41,9 @@ export default async function handler(
       await processContactForm(formData);
       res.status(200).json({ message: 'Email sent successfully.' });
     } catch (error) {
-      console.error('Error processing contact form:', error);
+        console.error('Error processing contact form:', (error as Error).message);
+      console.error('Stack trace:', (error as Error).stack);
+        console.error('Error processing contact form:', error);
       res.status(500).json({ message: 'Error processing contact form.' });
     }
   } else {
