@@ -1,32 +1,40 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { sendEmail } from '../../utils/ses-utils';
 import {getEmailTemplate} from '../../templates/email-template';
+import fs from 'fs';
+import path from 'path';
 
 interface FormData {
-  name: string;
   email: string;
-  subject: string;
-  message: string;
 }
+
+const getEmailContent = (): string => {
+    const filePath = path.join(process.cwd(), '../../templates/email-content-template.txt');
+    return fs.readFileSync(filePath, 'utf-8');
+};
 
 const processContactForm = (formData: FormData) => {
     
-  const { name, email, subject, message } = formData;
+    const { email } = formData;    
+    const subject = "Demystifying AI for End-Users: Everything You Need to Know to Harness its Potential";
+    const date = new Date().toLocaleDateString();
+    const content = getEmailContent()
+    const title = 'Unlocking the Potential of Artificial Intelligence'
 
-  const emailContent = getEmailTemplate(name, email, subject, message);
+    const emailContent = getEmailTemplate(date, content, title, email);
 
-  const params = {
-    Source: `${process.env.SENDER_EMAIL}`,
-    Destination: {
-      ToAddresses: [email],
-    },
-    Message: {
-      Subject: { Data: subject },
-      Body: { Html: { Data: emailContent } },
-    },
-  };
+    const params = {
+        Source: `${process.env.SENDER_EMAIL}`,
+        Destination: {
+        ToAddresses: [email],
+        },
+        Message: {
+        Subject: { Data: subject },
+        Body: { Html: { Data: emailContent } },
+        },
+    };
 
-  return sendEmail(params);
+    return sendEmail(params);
 };
 
 export default async function handler(

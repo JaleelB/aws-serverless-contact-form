@@ -1,6 +1,6 @@
 export const getEmailTemplate = (
     date: string,
-    subject: string,
+    title: string,
     content: string,
     email: string
 ): string => {
@@ -94,7 +94,7 @@ export const getEmailTemplate = (
                 <p class="date">${date}</p>
                 <div class="email-wrapper">
                     <div class="emoji">👋</div>
-                    <h1>${subject}</h1>
+                    <h1>${title}</h1>
                     
                     <div class="content">
                         <p>
