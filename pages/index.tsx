@@ -23,10 +23,6 @@ export default function Home() {
     
   });
 
-  useEffect(()=> {
-    console.log(formEmail);
-  }, [formEmail]);
-
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setFormEmail(value);
