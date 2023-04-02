@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { sendEmail } from '../../utils/ses-utils';
-import emailTemplate from '../../templates/email-template.html';
+import {getEmailTemplate} from '../../templates/email-template';
 
 interface FormData {
   name: string;
@@ -10,9 +10,10 @@ interface FormData {
 }
 
 const processContactForm = (formData: FormData) => {
+    
   const { name, email, subject, message } = formData;
 
-  const emailContent = emailTemplate.format(name, email, subject, message);
+  const emailContent = getEmailTemplate(name, email, subject, message);
 
   const params = {
     Source: `${process.env.SENDER_EMAIL}`,
