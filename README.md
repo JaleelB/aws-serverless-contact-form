@@ -1,38 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AWS Serverless Contact Form
+A simple contact form implementation using Next.js, Amazon Simple Email Service (SES), and AWS SDK. This project demonstrates how to build a serverless contact form for your website that sends emails to the recipient.
+
+## Features
+- Serverless contact form using Next.js API routes
+- Integration with Amazon SES for email sending
+- Basic form validation and error handling
+- Email content stored in a text file
+
+## Prerequisites
+- Node.js v12.x or later
+- npm v6.x or later
+- An AWS account with access to Amazon SES
 
 ## Getting Started
+1. Clone the repository:
+    `https://github.com/JaleelB/aws-serverless-contact-form.git`
 
-First, run the development server:
+2. Navigate to the project directory:
+    `cd aws-serverless-contact-form`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+3. Install the dependencies:
+    `yarn install`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Set up AWS credentials:
+    - Create an IAM user with the necessary permissions for Amazon SES.
+    - Configure your AWS credentials by setting the environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY or by using the [AWS CLI](https://aws.amazon.com/cli/).
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+5. Verify the sender and recipient email addresses in Amazon SES.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+6. Set the environment variables for the sender email address and AWS region in the .env.local file:
+    `
+        SENDER_EMAIL=your_sender_email@example.com
+        AWS_REGION=your_aws_region
+    `
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+7. Start the development server:
+    `yarn dev`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+8. Open your browser and navigate to http://localhost:3000 to see the contact form in action.
 
-## Learn More
+## Deploying to Production
 
-To learn more about Next.js, take a look at the following resources:
+Before deploying to production, make sure you have requested production access for your Amazon SES account to send emails to any recipient.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To deploy the application to a production environment, you can use any hosting service that supports Next.js, such as [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/).
