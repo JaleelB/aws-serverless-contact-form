@@ -63,28 +63,13 @@ export const getEmailTemplate = (
                     margin-bottom: 20px;
                 }
                 .content {
-                    margin-bottom: 20px;
+                    margin: 20px 0;
                 }
                 .footer{
                     font-size: 14px;
                     text-align: center;
                     margin: 1rem auto 0;
                     max-width: 450px;
-                }
-
-                /* Responsive styles */
-                @media screen and (max-width: 600px) {
-                    .email-wrapper {
-                        padding: 20px;
-                    }
-
-                    h1 {
-                        font-size: 20px;
-                    }
-
-                    p {
-                        font-size: 13px;
-                    }
                 }
 
             </style>
@@ -97,9 +82,7 @@ export const getEmailTemplate = (
                     <h1>${title}</h1>
                     
                     <div class="content">
-                        <p>
-                            ${content}
-                        </p>
+                       ${content}
                     </div>
                 </div>
                 <div class="footer">
